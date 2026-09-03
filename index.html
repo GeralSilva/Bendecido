@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> BENDECIDO | Catálogo Exclusivo de Moda Femenina</title>
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================================
+           PALETA DE COLORES NUDE & ROSAS RESALTADOS
+           ========================================================= */
+        :root {
+            --bg-color: #FAF4F0;          /* Fondo crema nude */
+            --card-bg: #FFFFFF;           /* Fondo blanco para las tarjetas */
+            --text-main: #3D2D27;         /* Texto chocolate oscuro */
+            --text-light: #7A6559;        /* Texto secundario suave */
+            
+            /* ROSAS RESALTADOS Y VIVOS */
+            --accent-rose: #E0899A;       /* Rosa palo vibrante */
+            --accent-rose-dark: #C96F82;  /* Rosa intenso para hovers/precios */
+            --accent-rose-light: #F9ECEF; /* Fondo de bloques en rosa pastel */
+            --border-color: #F0DED8;      /* Bordes sutiles */
+            --shadow-soft: 0 10px 25px rgba(224, 137, 154, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* BARRA SUPERIOR DE BIENVENIDA */
+        .top-bar {
+            background: linear-gradient(90deg, #E0899A, #D47B8C);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 11px 15px;
+            font-size: 0.85rem;
+            letter-spacing: 1.8px;
+            font-weight: 500;
+            text-transform: uppercase;
+            box-shadow: 0 2px 10px rgba(224, 137, 154, 0.25);
+        }
+
+        /* ENCABEZADO */
+        header {
+            text-align: center;
+            padding: 45px 20px 35px;
+            background-color: var(--card-bg);
+            border-bottom: 2px solid var(--accent-rose-light);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            letter-spacing: 4px;
+            color: var(--text-main);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        header p.subtitle {
+            font-size: 0.95rem;
+            color: var(--accent-rose-dark);
+            font-weight: 400;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .compliment-banner {
+            margin-top: 25px;
+            display: inline-block;
+            background-color: var(--accent-rose-light);
+            padding: 12px 32px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--text-main);
+            box-shadow: 0 4px 15px rgba(224, 137, 154, 0.15);
+        }
+
+        /* PESTAÑAS DE CATEGORÍAS */
+        .tabs-container {
+            max-width: 1200px;
+            margin: 35px auto 10px;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tab-btn {
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            border: 1.5px solid var(--border-color);
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background-color: var(--accent-rose);
+            color: #FFFFFF;
+            border-color: var(--accent-rose);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(224, 137, 154, 0.35);
+        }
+
+        /* GRILLA Y TARJETAS DE PRODUCTOS */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto 60px;
+            padding: 0 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(224, 137, 154, 0.22);
+            border-color: var(--accent-rose);
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 360px;
+            overflow: hidden;
+            cursor: pointer; /* Indica que la imagen es clickeable */
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.04);
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--accent-rose);
+            color: #FFFFFF;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+            z-index: 2;
+        }
+
+        .card-content {
+            padding: 22px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .card-content .description {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            font-weight: 300;
+        }
+
+        .card-content .price {
+            font-size: 1.15rem;
+            color: var(--accent-rose-dark);
+            margin-bottom: 18px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* BOTÓN DE WHATSAPP */
+        .btn-wa {
+            display: block;
+            background-color: var(--accent-rose);
+            color: #FFFFFF;
+            padding: 12px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(224, 137, 154, 0.3);
+        }
+
+        .btn-wa:hover {
+            background-color: var(--accent-rose-dark);
+            box-shadow: 0 6px 18px rgba(201, 111, 130, 0.45);
+        }
+
+        /* MODAL / VISOR DE IMAGEN A PANTALLA COMPLETA */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #FFFFFF;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: var(--accent-rose);
+        }
+
+        /* SECCIÓN INTERMEDIA */
+        .quote-section {
+            background-color: var(--accent-rose-light);
+            border-top: 1.5px solid var(--border-color);
+            border-bottom: 1.5px solid var(--border-color);
+            padding: 60px 20px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .quote-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quote-container span.sparkle {
+            color: var(--accent-rose-dark);
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .quote-container h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.85rem;
+            color: var(--text-main);
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .quote-container p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        footer p.footer-heart {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            color: var(--accent-rose-dark);
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        /* =========================================================
+   BANNER PUBLICITARIO DESTACADO (AMOR Y AMISTAD)
+   ========================================================= */
+.banner-promo-amor {
+    max-width: 1170px;
+    margin: 20px auto;
+    padding: 25px 20px;
+    background: linear-gradient(135deg, #FF6B8B, #FF2E63);
+    border-radius: 20px;
+    color: #FFFFFF;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(255, 46, 99, 0.25);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #FFE3E8;
+}
+
+.banner-promo-amor::before {
+    content: "🎁";
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    font-size: 4rem;
+    opacity: 0.2;
+}
+
+.banner-promo-content {
+    position: relative;
+    z-index: 2;
+}
+
+.banner-badge {
+    display: inline-block;
+    background-color: #FFFFFF;
+    color: #FF2E63;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.banner-promo-amor h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    font-weight: 800;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+}
+
+.banner-promo-amor p {
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    opacity: 0.95;
+    margin-bottom: 18px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.banner-btn-link {
+    display: inline-block;
+    background-color: #FFFFFF;
+    color: #FF2E63;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.banner-btn-link:hover {
+    background-color: #4A121A;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* Ajustes para Pantallas de Celular */
+@media (max-width: 600px) {
+    .banner-promo-amor {
+        margin: 15px;
+        padding: 18px 12px;
+        border-radius: 14px;
+    }
+
+    .banner-btn-link {
+        padding: 10px 20px;
+        font-size: 0.75rem;
+        width: 100%;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <!-- 1. BARRA SUPERIOR DE BIENVENIDA -->
+    <div class="top-bar">
+        ✨ Diseñado para realzar la elegancia que ya habita en ti ✨
+    </div>
+
+    <!-- 2. ENCABEZADO -->
+    <header>
+        <h1>BOUTIQUE BENDECIDO</h1>
+        <p class="subtitle">Catálogo Exclusivo de Moda Femenina</p>
+        
+        <div class="compliment-banner">
+            "La prenda más bella que puedes llevar siempre será tu propia confianza."
+        </div>
+    </header>
+
+    <!-- BANNER PUBLICITARIO AMOR Y AMISTAD -->
+<div class="banner-promo-amor">
+    <div class="banner-promo-content">
+        <span class="banner-badge">💖 Oferta de Temporada</span>
+        <h2>ESPECIAL AMOR & AMISTAD</h2>
+        <p>Descubre combos exclusivos, descuentos de hasta el 20% y empaque de regalo gratis.</p>
+        <a href="amor-y-amistad.html" class="banner-btn-link">
+            Ver Promociones Exclusivas ✨
+        </a>
+    </div>
+</div>
+
+    <!-- 3. PESTAÑAS DE FILTRADO DE CATEGORÍAS -->
+    <div class="tabs-container">
+        <button class="tab-btn active" onclick="filterCategory('todos', this)">Ver Todo</button>
+        <button class="tab-btn" onclick="filterCategory('camisetas', this)">Camisetas</button>
+        <button class="tab-btn" onclick="filterCategory('conjuntos', this)">Conjuntos</button>
+        <button class="tab-btn" onclick="filterCategory('chaquetas', this)">Chaquetas</button>
+        <button class="tab-btn" onclick="filterCategory('buzos', this)">Buzos</button>
+        <button class="tab-btn" onclick="filterCategory('deportiva', this)">Ropa Deportiva</button>
+    </div>
+
+    <!-- 4. CATÁLOGO DE PRODUCTOS -->
+    <div class="container">
+        <div class="grid">
+            
+            <!-- CAMISETA 1 -->
+            <div class="card camisetas destacado">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Satinado</span>
+                    <img src="fotos/Camisetas/1.jpeg" alt="Camiseta Elegante">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Camiseta Satinada Rose</h3>
+                        <p class="description">Brillo sutil y fluido. Ilumina tu rostro y aporta un porte refinado.</p>
+                    </div>
+                    <div>
+                        <div class="price">$90.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20la%20Camiseta%201" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CAMISETA 2 -->
+            <div class="card camisetas">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Satinado</span>
+                    <img src="fotos/Camisetas/2.jpeg" alt="Camiseta Elegante">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Camiseta Satinada Rose</h3>
+                        <p class="description">Brillo sutil y fluido. Ilumina tu rostro y aporta un porte refinado.</p>
+                    </div>
+                    <div>
+                        <div class="price">$90.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20la%20Camiseta%201" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CAMISETA 3 -->
+            <div class="card camisetas">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Satinado</span>
+                    <img src="fotos/Camisetas/3.jpeg" alt="Camiseta Elegante">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Camiseta Satinada Rose</h3>
+                        <p class="description">Brillo sutil y fluido. Ilumina tu rostro y aporta un porte refinado.</p>
+                    </div>
+                    <div>
+                        <div class="price">$90.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20la%20Camiseta%201" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CAMISETA 4 -->
+            <div class="card camisetas">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Satinado</span>
+                    <img src="fotos/Camisetas/4.jpeg" alt="Camiseta Elegante">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Camiseta Satinada Rose</h3>
+                        <p class="description">Brillo sutil y fluido. Ilumina tu rostro y aporta un porte refinado.</p>
+                    </div>
+                    <div>
+                        <div class="price">$90.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20la%20Camiseta%201" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CAMISETA 5 -->
+            <div class="card camisetas">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Satinado</span>
+                    <img src="fotos/Camisetas/5.jpeg" alt="Camiseta Elegante">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Camiseta Satinada Rose</h3>
+                        <p class="description">Brillo sutil y fluido. Ilumina tu rostro y aporta un porte refinado.</p>
+                    </div>
+                    <div>
+                        <div class="price">$90.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20la%20Camiseta%201" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CAMISETA 6 -->
+            <div class="card camisetas">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Satinado</span>
+                    <img src="fotos/Camisetas/6.jpeg" alt="Camiseta Elegante">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Camiseta Satinada Rose</h3>
+                        <p class="description">Brillo sutil y fluido. Ilumina tu rostro y aporta un porte refinado.</p>
+                    </div>
+                    <div>
+                        <div class="price">$90.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20la%20Camiseta%201" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CAMISETA 7 -->
+            <div class="card camisetas">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Satinado</span>
+                    <img src="fotos/Camisetas/7.jpeg" alt="Camiseta Elegante">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Camiseta Satinada Rose</h3>
+                        <p class="description">Brillo sutil y fluido. Ilumina tu rostro y aporta un porte refinado.</p>
+                    </div>
+                    <div>
+                        <div class="price">$90.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20la%20Camiseta%201" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CAMISETA 8 -->
+            <div class="card camisetas">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Satinado</span>
+                    <img src="fotos/Camisetas/8.jpeg" alt="Camiseta Elegante">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Camiseta Satinada Rose</h3>
+                        <p class="description">Brillo sutil y fluido. Ilumina tu rostro y aporta un porte refinado.</p>
+                    </div>
+                    <div>
+                        <div class="price">$90.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20la%20Camiseta%201" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CAMISETA 9 -->
+            <div class="card camisetas">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Satinado</span>
+                    <img src="fotos/Camisetas/9.jpeg" alt="Camiseta Elegante">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Camiseta Satinada Rose</h3>
+                        <p class="description">Brillo sutil y fluido. Ilumina tu rostro y aporta un porte refinado.</p>
+                    </div>
+                    <div>
+                        <div class="price">$90.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20la%20Camiseta%201" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CAMISETA 10 -->
+            <div class="card camisetas">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Satinado</span>
+                    <img src="fotos/Camisetas/10.jpeg" alt="Camiseta Elegante">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Camiseta Satinada Rose</h3>
+                        <p class="description">Brillo sutil y fluido. Ilumina tu rostro y aporta un porte refinado.</p>
+                    </div>
+                    <div>
+                        <div class="price">$90.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20la%20Camiseta%201" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 1 -->
+            <div class="card conjuntos destacado">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Sporty Moka</span>
+                    <img src="fotos/Conjuntos/1.jpeg" alt="Conjunto Sporty Moka Warm">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Sporty Moka Warm</h3>
+                        <p class="description">Elegancia sobria y comodidad absoluta. Un tono cálido pensado para envolverte en sofisticación todos los días.</p>
+                    </div>
+                    <div>
+                        <div class="price">$110.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Sporty%20Moka" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 2 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/2.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$110.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 3 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/3.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$205.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 4 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/4.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$205.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 5 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/5.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$205.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 6 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/6.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$110.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 7 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/7.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$190.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 8 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/8.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$150.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 9 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/9.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$190.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 10 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/10.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$190.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 11 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/11.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$150.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 12 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/12.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$195.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 13 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/13.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$195.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 14 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/14.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$195.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 15 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/15.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$195.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 16 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/16.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$195.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 17 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/17.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$195.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- CONJUNTO 19 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/19.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$195.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 20 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/20.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$195.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 21 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/21.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$195.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 22 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/22.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$195.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 23 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/23.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$195.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 24 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/24.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$195.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 25 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/25.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$195.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 26 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/26.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$195.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 27 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/27.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$195.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 28 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/28.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$205.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONJUNTO 29 -->
+            <div class="card conjuntos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cloud White</span>
+                    <img src="fotos/Conjuntos/29.jpeg" alt="Conjunto Athleisure Cloud White">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Conjunto Athleisure Cloud White</h3>
+                        <p class="description">Luz, soltura y frescura. Diseñado para darte un aire radiante y relajado sin perder el toque chic.</p>
+                    </div>
+                    <div>
+                        <div class="price">$195.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Conjunto%20Cloud%20White" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHAQUETA 1 -->
+            <div class="card chaquetas destacado">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Exclusivo</span>
+                    <img src="fotos/Chaquetas/1.png" alt="Chaqueta Minimalista">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Chaqueta Minimalista</h3>
+                        <p class="description">Corte estructurado y acabado suave. El toque sofisticado perfecto.</p>
+                    </div>
+                    <div>
+                        <div class="price">$99.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20la%20Chaqueta%201" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHAQUETA 2 -->
+            <div class="card chaquetas">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Exclusivo</span>
+                    <img src="fotos/Chaquetas/2.png" alt="Chaqueta Minimalista">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Chaqueta Minimalista</h3>
+                        <p class="description">Corte estructurado y acabado suave. El toque sofisticado perfecto.</p>
+                    </div>
+                    <div>
+                        <div class="price">$139.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20la%20Chaqueta%202" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHAQUETA 3 -->
+            <div class="card chaquetas">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Exclusivo</span>
+                    <img src="fotos/Chaquetas/3.png" alt="Chaqueta Minimalista">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Chaqueta Minimalista</h3>
+                        <p class="description">Corte estructurado y acabado suave. El toque sofisticado perfecto.</p>
+                    </div>
+                    <div>
+                        <div class="price">$139.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20la%20Chaqueta%203" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHAQUETA 4 -->
+            <div class="card chaquetas">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Exclusivo</span>
+                    <img src="fotos/Chaquetas/4.png" alt="Chaqueta Minimalista">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Chaqueta Minimalista</h3>
+                        <p class="description">Corte estructurado y acabado suave. El toque sofisticado perfecto.</p>
+                    </div>
+                    <div>
+                        <div class="price">$139.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20la%20Chaqueta%204" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHAQUETA 5 -->
+            <div class="card chaquetas">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Exclusivo</span>
+                    <img src="fotos/Chaquetas/5.png" alt="Chaqueta Minimalista">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Chaqueta Minimalista</h3>
+                        <p class="description">Corte estructurado y acabado suave. El toque sofisticado perfecto.</p>
+                    </div>
+                    <div>
+                        <div class="price">$139.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20la%20Chaqueta%205" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+             <!-- CHAQUETA 6 -->
+            <div class="card chaquetas">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Exclusivo</span>
+                    <img src="fotos/Chaquetas/6.png" alt="Chaqueta Minimalista">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Chaqueta Minimalista</h3>
+                        <p class="description">Corte estructurado y acabado suave. El toque sofisticado perfecto.</p>
+                    </div>
+                    <div>
+                        <div class="price">$139.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20la%20Chaqueta%206" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHAQUETA 7 -->
+            <div class="card chaquetas">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Exclusivo</span>
+                    <img src="fotos/Chaquetas/7.png" alt="Chaqueta Minimalista">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Chaqueta Minimalista</h3>
+                        <p class="description">Corte estructurado y acabado suave. El toque sofisticado perfecto.</p>
+                    </div>
+                    <div>
+                        <div class="price">$134.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20la%20Chaqueta%207" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHAQUETA 8 -->
+            <div class="card chaquetas">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Exclusivo</span>
+                    <img src="fotos/Chaquetas/8.png" alt="Chaqueta Minimalista">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Chaqueta Minimalista</h3>
+                        <p class="description">Corte estructurado y acabado suave. El toque sofisticado perfecto.</p>
+                    </div>
+                    <div>
+                        <div class="price">$134.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20la%20Chaqueta%208" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- BUZO 1 -->
+            <div class="card buzos destacado">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cálido</span>
+                    <img src="fotos/Buzos/1.jpeg" alt="Buzo Tejido Soft">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Buzo Tejido Soft</h3>
+                        <p class="description">Textura de abrazos suaves. Diseñado para abrigarte con elegancia.térmicos</p>
+                    </div>
+                    <div>
+                        <div class="price">$110.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Buzo%201" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BUZO 2 -->
+            <div class="card buzos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cálido</span>
+                    <img src="fotos/Buzos/2.jpeg" alt="Buzo Tejido Soft">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Buzo Tejido Soft</h3>
+                        <p class="description">Textura de abrazos suaves. Diseñado para abrigarte con elegancia.</p>
+                    </div>
+                    <div>
+                        <div class="price">$110.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Buzo%201" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BUZO 3 -->
+            <div class="card buzos">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Cálido</span>
+                    <img src="fotos/Buzos/3.jpeg" alt="Buzo Tejido Soft">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Buzo Tejido Soft</h3>
+                        <p class="description">Textura de abrazos suaves. Diseñado para abrigarte con elegancia.</p>
+                    </div>
+                    <div>
+                        <div class="price">$110.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Buzo%203" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROPA DEPORTIVA  -->
+            <div class="card deportiva destacado">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Active</span>
+                    <img src="fotos/Deportiva/1.jpeg" alt="Conjunto Deportivo Active">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Set Deportivo Active Gold</h3>
+                        <p class="description">Ajuste perfecto y máxima comodidad para mantener tu estilo activo.</p>
+                    </div>
+                    <div>
+                        <div class="price">$75.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Set%20Deportivo%201" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ROPA DEPORTIVA  -->
+            <div class="card deportiva">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Active</span>
+                    <img src="fotos/Deportiva/2.jpeg" alt="Conjunto Deportivo Active">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Set Deportivo Active Gold</h3>
+                        <p class="description">Ajuste perfecto y máxima comodidad para mantener tu estilo activo.</p>
+                    </div>
+                    <div>
+                        <div class="price">$75.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Set%20Deportivo%202" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROPA DEPORTIVA  -->
+            <div class="card deportiva">
+                <div class="card-img-wrapper" onclick="openModal(this)">
+                    <span class="badge">Active</span>
+                    <img src="fotos/Deportiva/3.jpeg" alt="Conjunto Deportivo Active">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Set Deportivo Active Gold</h3>
+                        <p class="description">Ajuste perfecto y máxima comodidad para mantener tu estilo activo.</p>
+                    </div>
+                    <div>
+                        <div class="price">$75.000</div>
+                        <a href="https://wa.me/573000000000?text=Hola,%20estoy%20interesada%20en%20el%20Set%20Deportivo%203" target="_blank" class="btn-wa">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 5. VENTANA MODAL PARA AMPLIAR LA IMAGEN -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-img" id="fullImage">
+    </div>
+
+    <!-- 6. SECCIÓN INTERMEDIA CON FRASE -->
+    <section class="quote-section">
+        <div class="quote-container">
+            <span class="sparkle">✦ ✦ ✦</span>
+            <h2>"Cada prenda está seleccionada para recordar lo auténtica, valiosa y hermosa que eres."</h2>
+            <p>Gracias por elegirnos y permitirnos ser parte de tu estilo único.</p>
+        </div>
+    </section>
+
+    <!-- 7. PIE DE PÁGINA -->
+    <footer>
+        <p class="footer-heart">Creado con amor para mujeres extraordinarias</p>
+        <p>&copy; 2026 BENDECIDO - Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JAVASCRIPT: FILTRADO Y MODAL -->
+    <script>
+        // Función de Filtrado de Categorías
+        function filterCategory(category, element) {
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            const products = document.querySelectorAll('.card');
+
+            products.forEach(product => {
+                if (category === 'todos') {
+                    if (product.classList.contains('destacado')) {
+                        product.style.display = 'flex';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                } else {
+                    if (product.classList.contains(category)) {
+                        product.style.display = 'flex';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Funciones para la Ventana Modal (Abrir y Cerrar fotos)
+        function openModal(wrapper) {
+            const img = wrapper.querySelector('img');
+            const modal = document.getElementById('imageModal');
+            const fullImg = document.getElementById('fullImage');
+            
+            fullImg.src = img.src;
+            modal.classList.add('show');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('show');
+        }
+
+        // Inicializar
+        document.addEventListener("DOMContentLoaded", () => {
+            const defaultActiveTab = document.querySelector('.tab-btn.active');
+            filterCategory('todos', defaultActiveTab);
+        });
+    </script>
+</body>
+</html>
